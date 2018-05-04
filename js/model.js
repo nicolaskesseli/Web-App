@@ -64,15 +64,10 @@ var myLocations =
     
 ];
 
-
-
 // Events
 //
 //
 //
-
-
-
 
 var myEvents = 
 [
@@ -199,10 +194,7 @@ var myEvents =
     
 ];
 
-
-
 /*
  "longitude":"8.546794652938843",
  "latitude":"47.37633445120742",
  */
-

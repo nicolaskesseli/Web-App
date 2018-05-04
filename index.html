@@ -13,21 +13,8 @@
     <title>Jazz-Lounge</title>
 
     <!-- 1. css jquery Mobile -->
-    <link rel="stylesheet" href="lib/jquery/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="lib/jquery/jquery.mobile-1.4.5.min.css"/>
     <link rel="stylesheet" href="styles/general.css"/>
-
-    <!-- 2. js jquery -->
-    <script type="text/javascript" src="lib/jquery/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="lib/jquery/jquery.mobile-1.4.5.min.js"></script>
-
-    <!-- 3. js external -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZDsGJnpCjTrNtKQm4ztj1FAW08Itwgao&v=3"></script> <!-- Google-Maps -->
-
-    <!-- Eigene JS-Bibliotheken -->
-    <!-- 4. Model (logic) -->
-    <script type="text/javascript" src="js/model.js"></script>
-    <!-- 5. events -->
-    <script type="text/javascript" src="js/controller.js"></script>
 
 </head>
 
@@ -36,584 +23,451 @@
 <!--------------------------------------------------------------------------------------------------------->
 <!-- PAGE INDEX -->
 <!--------------------------------------------------------------------------------------------------------->
-    <section data-role="page" id="page-index" data-title="Jazz-Lounge - Startseite | page-index">
 
-        <!---------------------------------------------------------------------------------------------->
-        <!-- HEADER // headline | image -->
-        <!---------------------------------------------------------------------------------------------->
-        <header data-role="header">
+<section data-role="page" id="page-index" data-title="Jazz-Lounge - Startseite | page-index">
 
-            <h1>Jazz Lounge</h1>
-          
-        </header><!-- /header -->
+    <!---------------------------------------------------------------------------------------------->
+    <!-- HEADER // headline | image -->
+    <!---------------------------------------------------------------------------------------------->
+    <header data-role="header">
 
-        <!---------------------------------------------------------------------------------------------->
-        <!-- CONTENT -->
-        <!---------------------------------------------------------------------------------------------->
-        <article class="ui-content">
+        <h1>Jazz Lounge</h1>
 
-            <!---------------------------------------------------------------->
-            <!-- LOCATION - Image + Links || Optional Grid / Block a/b -->
-            <!---------------------------------------------------------------->
-            <center>
-                <img src="img/jazzbild1.jpg" class="bild" ;/>
-            </center>
-            <p>
-                <a href="#page-JazzLokal" id="toJazzLokalButton" data-role="button">Jazzlokal suchen</a>
-                <a href="#page-JazzEvent" id="toJazzEventButton" data-role="button">Jazz Event suchen</a>
-                <a href="#page-Location" id="toLocationButton" data-role="button">Standort anzeigen</a>
-            </p>
+    </header><!-- /header -->
 
-        </article><!-- /content -->
+    <!---------------------------------------------------------------------------------------------->
+    <!-- CONTENT -->
+    <!---------------------------------------------------------------------------------------------->
+    <article class="ui-content">
 
-        <!---------------------------------------------------------------------------------------------->
-        <!-- FOOTER -->
-        <!---------------------------------------------------------------------------------------------->
-        <footer data-role="footer">
-            <h6>2018 by  Nici / Carlo / Rini</h6>
-        </footer><!-- /footer -->
+        <!---------------------------------------------------------------->
+        <!-- LOCATION - Image + Links || Optional Grid / Block a/b -->
+        <!---------------------------------------------------------------->
+        <img src="img/jazzbild1.jpg" class="bild" ;/>
+        <p>
+            <a href="#page-JazzLokal" id="toJazzLokalButton" data-role="button">Jazzlokal suchen</a>
+            <a href="#page-JazzEvent" id="toJazzEventButton" data-role="button">Jazzevent suchen</a>
+            <a href="#page-Location" id="toLocationButton" data-role="button">Standort anzeigen</a>
+        </p>
 
-    </section><!-- /page -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    </article><!-- /content -->
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- FOOTER -->
+    <!---------------------------------------------------------------------------------------------->
+    <footer data-role="footer">
+        <h6>2018 by Nici / Carlo / Rini</h6>
+    </footer><!-- /footer -->
+
+</section><!-- /page -->
 
 <!--------------------------------------------------------------------------------------------------------->
 <!-- PAGE Jazz Lokal -->
 <!--------------------------------------------------------------------------------------------------------->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <section data-role="page" id="page-JazzLokal" data-title="Jazz Lounge - Details | page-JazzLokal">
 
-        <!---------------------------------------------------------------------------------------------->
-        <!-- HEADER -->
-        <!---------------------------------------------------------------------------------------------->
-        <header data-role="header">
 
-            <h1>Jazz Lokal</h1>
-            <a href="#" data-icon="back" data-rel="back">Zur&uuml;ck</a>
+<section data-role="page" id="page-JazzLokal" data-title="Jazz Lounge - Details | page-JazzLokal">
 
-        </header><!-- /header -->
+    <!---------------------------------------------------------------------------------------------->
+    <!-- HEADER -->
+    <!---------------------------------------------------------------------------------------------->
+    <header data-role="header">
 
-        <!---------------------------------------------------------------------------------------------->
-        <!-- CONTENT -->
-        <!---------------------------------------------------------------------------------------------->
-        <article class="ui-content">
+        <h1>Jazz Lokal</h1>
+        <a href="#" data-icon="back" data-rel="back">Zur&uuml;ck</a>
 
-            <p><strong>Details:</strong></p>
+    </header><!-- /header -->
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- CONTENT -->
+    <!---------------------------------------------------------------------------------------------->
+    <article class="ui-content">
+
+        <p><strong>Details:</strong></p>
+
+        <!---------------------------------------------------------------->
+        <!-- LOCATION - Details - collapsible-set / collapsible / -->
+        <!---------------------------------------------------------------->
+        <div data-role="collapsible-set" data-theme="c" data-content-theme="d">  <!-- Location Infos -->
 
             <!---------------------------------------------------------------->
-            <!-- LOCATION - Details - collapsible-set / collapsible / -->
+            <!-- LOCATION // id="beschrLocation..." => description -->
             <!---------------------------------------------------------------->
-            <div data-role="collapsible-set" data-theme="c" data-content-theme="d">  <!-- Location Infos -->
+            <div data-role="collapsible" data-collapsed="false">
+
+                <h3>Kurzinfos</h3>
+                <h3 id="beschrLocationContentTop"></h3>
+                <p id="beschrLocationContent"></p>
+
+            </div> <!-- /Review Beschreibung -->
+            <!---------------------------------------------------------------->
+            <!-- LOCATION // id="adr.../tel.../mail..." / description -->
+            <!---------------------------------------------------------------->
+            <div data-role="collapsible">
+
+                <h3>Kontaktdaten</h3>
+                <p><strong>Adresse:</strong></p>
+                <p id="adrLocation"></p>
+                <!-- <br /> -->
+                <p><strong>Telefon</strong>:</p>
+                <p id="telLocation"></p>
+                <a id="telLocationLink">Link</a>
+                <!-- <br /> -->
+                <p><strong>E-Mail</strong>:</p>
+                <p id="mailLocation"></p>
+                <a id="mailLocationLink">Link</a>
+
+            </div> <!-- /Review Kontaktdaten -->
+            <!---------------------------------------------------------------->
+            <!-- LOCATION // id="imgLocation" / listview / ul  -->
+            <!---------------------------------------------------------------->
+            <div id="imgLocation" data-role="collapsible">
+
+                <h3>Bildergalerie</h3>
+                <ul data-role="listview">
+                </ul>
+
+            </div> <!-- Review Images -->
+
+        </div> <!-- /collapsible-set -->
+
+        <!---------------------------------------------------------------->
+        <!-- LOCATION - Review // form elements -->
+        <!---------------------------------------------------------------->
+        <div data-role="collapsible-set" data-theme="c" data-content-theme="d"> <!--Review -->
+
+            <div data-role="collapsible" data-collapsed="true" data-collapsed-icon="heart" data-theme="e"
+                 data-content-theme="c">
+
+                <h3>Meine Wertung</h3>
 
                 <!---------------------------------------------------------------->
-                <!-- LOCATION // id="beschrLocation..." => description -->
+                <!-- ui-field-contain / label / range 0-6 "angebot" -->
                 <!---------------------------------------------------------------->
-                <div data-role="collapsible" data-collapsed="false">
+                <div class="ui-field-contain">
 
-                    <h3>Kurzinfos</h3>
-                    <h3 id="beschrLocationContentTop"></h3>
-                    <p id="beschrLocationContent"></p>
+                    <label id="labelAngebot" for="angebot">Angebot</label>
+                    <input type="range" id="angebot" data-mini="true" data-highlight="true" value="0" min="0" max="6"/>
 
-                </div> <!-- /Review Beschreibung -->
+                </div> <!-- /Review Slider Angebot -->
+
                 <!---------------------------------------------------------------->
-                <!-- LOCATION // id="adr.../tel.../mail..." / description -->
+                <!-- ui-field-contain / label / select / default=mittel "preise" -->
                 <!---------------------------------------------------------------->
-                <div data-role="collapsible">
+                <div class="ui-field-contain">
 
-                    <h3>Kontaktdaten</h3>
-                    <p><strong>Adresse:</strong></p>
-                    <p id="adrLocation"></p>
-                    <!-- <br /> -->
-                    <p><strong>Telefon</strong>:</p>
-                    <p id="telLocation"></p>
-                    <a id="telLocationLink">Link</a>
-                    <!-- <br /> -->
-                    <p><strong>E-Mail</strong>:</p>
-                    <p id="mailLocation"></p>
-                    <a id="mailLocationLink">Link</a>
+                    <label for="preise">Preise</label>
+                    <select id="preise" data-mini="true">
+                        <option value="1">günstig</option>
+                        <option value="2" selected="selected">mittel</option>
+                        <option value="3">teuer</option>
+                        <option value="4">sehr teuer</option>
+                    </select>
 
-                </div> <!-- /Review Kontaktdaten -->
+                </div> <!-- /Review Auswahl Preisverh&auml;ltnis -->
+
                 <!---------------------------------------------------------------->
-                <!-- LOCATION // id="imgLocation" / listview / ul  -->
+                <!-- ui-field-contain / label / select-flipswitch "gemuetlich" default=nein -->
                 <!---------------------------------------------------------------->
-                <div id="imgLocation" data-role="collapsible">
 
-                    <h3>Bildergalerie</h3>
-                    <ul data-role="listview" >
+                <fieldset>
+                    <div class="ui-field-contain">
+                        <label for="gemuetlich">gem&uuml;tlich</label>
+                        <select id="gemuetlich" data-role="flipswitch" data-mini="true">
+                            <option value="nein" selected="selected">Nein</option>
+                            <option value="ja">Ja</option>
+                        </select>
+                    </div> <!-- /Review Auswahl ja/nein -->
+                </fieldset>
+
+                <!---------------------------------------------------------------->
+                <!-- ui-field-contain / label / textarea "kommentar" -->
+                <!---------------------------------------------------------------->
+                <div class="ui-field-contain">
+
+                    <label for="kommentar">Meine Kommentare:</label>
+                    <textarea id="kommentar" data-mini="true"></textarea>
+
+                </div> <!-- /Review Kommentar -->
+
+                <!---------------------------------------------------------------->
+                <!-- navbar / ul / li / a -->
+                <!---------------------------------------------------------------->
+                <div data-role="navbar">
+
+                    <ul>
+                        <li>
+                            <a id="delLocationReview" href="#" data-icon="delete">Löschen</a>
+                        </li>
+                        <li>
+                            <a id="saveLocationReview" href="#" data-icon="check">Speichern</a>
+                        </li>
                     </ul>
 
-                </div> <!-- Review Images -->
+                </div> <!-- /Review Aktionen -->
 
-            </div> <!-- /collapsible-set -->
+            </div> <!-- /collapsible -->
+
+        </div> <!-- /collapsible-set -->
+
+        <!---------------------------------------------------------------->
+        <!-- KARTEANSICHT -->
+        <!---------------------------------------------------------------->
+        <button data-role="button" id="showMapButton">Karte anzeigen</button>
+
+        <h3>Kartenansicht</h3>
+
+        <div id="karteAusgabe" style="height: 500px; width: 500px;"></div>
+        <p id="adresseAusgabe"></p>
+
+    </article><!-- /content -->
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- FOOTER -->
+    <!---------------------------------------------------------------------------------------------->
+    <footer data-role="footer">
+        <h6>2018 by Nici / Carlo / Rini</h6>
+    </footer><!-- /footer -->
+
+</section><!-- /page -->
+
+
+<!--------------------------------------------------------------------------------------------------------->
+<!-- PAGE Jazz Event-->
+<!--------------------------------------------------------------------------------------------------------->
+
+
+<section data-role="page" id="page-JazzEvent" data-title="Jazz Lounge - Details | page-JazzEvent">
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- HEADER -->
+    <!---------------------------------------------------------------------------------------------->
+    <header data-role="header">
+
+        <h1>Jazz Event</h1>
+        <a href="#" data-icon="back" data-rel="back">Zur&uuml;ck</a>
+
+    </header><!-- /header -->
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- CONTENT -->
+    <!---------------------------------------------------------------------------------------------->
+    <article class="ui-content">
+
+        <p><strong>Details:</strong></p>
+
+        <!---------------------------------------------------------------->
+        <!-- LOCATION - Details - collapsible-set / collapsible / -->
+        <!---------------------------------------------------------------->
+        <div data-role="collapsible-set" data-theme="c" data-content-theme="d">  <!-- Location Infos -->
 
             <!---------------------------------------------------------------->
-            <!-- LOCATION - Review // form elements -->
+            <!-- LOCATION // id="beschrLocation..." => description -->
             <!---------------------------------------------------------------->
-            <div data-role="collapsible-set" data-theme="c" data-content-theme="d"> <!--Review -->
+            <div data-role="collapsible" data-collapsed="false">
 
-                <div data-role="collapsible" data-collapsed="true" data-collapsed-icon="heart" data-theme="e" data-content-theme="c">
+                <h3>Kurzinfos</h3>
+                <h3 id="beschrEventContentTop"></h3>
+                <p id="beschrEventContent"></p>
 
-                    <h3>Meine Wertung</h3>
+            </div> <!-- /Review Beschreibung -->
+            <!---------------------------------------------------------------->
+            <!-- LOCATION // id="adr.../tel.../mail..." / description -->
+            <!---------------------------------------------------------------->
+            <div data-role="collapsible">
 
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / range 0-6 "angebot" -->
-                    <!---------------------------------------------------------------->
+                <h3>Kontaktdaten</h3>
+                <p><strong>Adresse:</strong></p>
+                <p id="adrEventLocation"></p>
+                <!-- <br /> -->
+                <p><strong>Datum:</strong>:</p>
+                <p id="eventDatum"></p>
+                <!-- <br /> -->
+                <p><strong>Zeit:</strong>:</p>
+                <a id="eventStart"></a>
+                <p id="eventEnde"></p>
+                <!-- <br /> -->
+                <p><strong>Jazz Lokal:</strong>:</p>
+                <a id="eventLokal"></a>
+
+            </div> <!-- /Review Kontaktdaten -->
+            <!---------------------------------------------------------------->
+            <!-- LOCATION // id="imgLocation" / listview / ul  -->
+            <!---------------------------------------------------------------->
+            <div id="imgEventLocation" data-role="collapsible">
+
+                <h3>Bildergalerie</h3>
+                <ul data-role="listview">
+                </ul>
+
+            </div> <!-- Review Images -->
+
+        </div> <!-- /collapsible-set -->
+
+        <!---------------------------------------------------------------->
+        <!-- LOCATION - Review // form elements -->
+        <!---------------------------------------------------------------->
+        <div data-role="collapsible-set" data-theme="c" data-content-theme="d"> <!--Review -->
+
+            <div data-role="collapsible" data-collapsed="true" data-collapsed-icon="heart" data-theme="e"
+                 data-content-theme="c">
+
+                <h3>Meine Wertung</h3>
+
+                <!---------------------------------------------------------------->
+                <!-- ui-field-contain / label / range 0-6 "angebot" -->
+                <!---------------------------------------------------------------->
+                <div class="ui-field-contain">
+
+                    <label id="labelAngebotEvent" for="angebot">Angebot</label>
+                    <input type="range" id="angebotEvent" data-mini="true" data-highlight="true" value="0" min="0"
+                           max="6"/>
+
+                </div> <!-- /Review Slider Angebot -->
+
+                <!---------------------------------------------------------------->
+                <!-- ui-field-contain / label / select / default=mittel "preise" -->
+                <!---------------------------------------------------------------->
+                <div class="ui-field-contain">
+
+                    <label for="preise">Preise</label>
+                    <select id="preiseEvent" data-mini="true">
+                        <option value="1">günstig</option>
+                        <option value="2" selected="selected">mittel</option>
+                        <option value="3">teuer</option>
+                        <option value="4">sehr teuer</option>
+                    </select>
+
+                </div> <!-- /Review Auswahl Preisverh&auml;ltnis -->
+
+                <!---------------------------------------------------------------->
+                <!-- ui-field-contain / label / select-flipswitch "gemuetlich" default=nein -->
+                <!---------------------------------------------------------------->
+
+                <fieldset>
                     <div class="ui-field-contain">
-
-                        <label id="labelAngebot" for="angebot">Angebot</label>
-                        <input type="range" id="angebot" data-mini="true" data-highlight="true" value="0" min="0" max="6" />
-
-                    </div> <!-- /Review Slider Angebot -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / select / default=mittel "preise" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label for="preise">Preise</label>
-                        <select id="preise" data-mini="true">
-                            <option value="1">günstig</option>
-                            <option value="2" selected="selected">mittel</option>
-                            <option value="3">teuer</option>
-                            <option value="4">sehr teuer</option>
+                        <label for="gemuetlich">gem&uuml;tlich</label>
+                        <select id="gemuetlichEvent" data-role="flipswitch" data-mini="true">
+                            <option value="nein" selected="selected">Nein</option>
+                            <option value="ja">Ja</option>
                         </select>
-
-                    </div> <!-- /Review Auswahl Preisverh&auml;ltnis -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / select-flipswitch "gemuetlich" default=nein -->
-                    <!---------------------------------------------------------------->
-
-                    <fieldset>
-                        <div class="ui-field-contain">
-                            <label for="gemuetlich">gem&uuml;tlich</label>
-                            <select id="gemuetlich" data-role="flipswitch" data-mini="true">
-                                <option value="nein" selected="selected">Nein</option>
-                                <option value="ja">Ja</option>
-                            </select>
-                        </div> <!-- /Review Auswahl ja/nein -->
-                    </fieldset>
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / textarea "kommentar" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label for="kommentar">Meine Kommentare:</label>
-                        <textarea id="kommentar" data-mini="true"></textarea>
-
-                    </div> <!-- /Review Kommentar -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- navbar / ul / li / a -->
-                    <!---------------------------------------------------------------->
-                    <div data-role="navbar">
-
-                        <ul>
-                            <li>
-                                <a id="delLocationReview" href="#" data-icon="delete">Löschen</a>
-                            </li>
-                            <li>
-                                <a id="saveLocationReview" href="#" data-icon="check">Speichern</a>
-                            </li>
-                        </ul>
-
-                    </div> <!-- /Review Aktionen -->
-
-                </div> <!-- /collapsible -->
-
-            </div> <!-- /collapsible-set -->
-
-            <!---------------------------------------------------------------->
-            <!-- KARTEANSICHT -->
-            <!---------------------------------------------------------------->
-            <button data-role="button" id="showMapButton">Karte anzeigen</button>
-
-            <h3>Kartenansicht</h3>
-
-            <div id="karteAusgabe" style="height: 500px; width: 500px;"></div>
-            <p id="adresseAusgabe"></p>
-
-        </article><!-- /content -->
-
-        <!---------------------------------------------------------------------------------------------->
-        <!-- FOOTER -->
-        <!---------------------------------------------------------------------------------------------->
-        <footer data-role="footer">
-            <h6>2018 by Nici / Carlo / Rini</h6>
-        </footer><!-- /footer -->
-
-        
-        
-        <!---------------------------------------------------------------------------------------------->
-        <!-- Page Jazz Event -->
-        <!----------------------------------------------------------------------------------------------        
-        
-        
-        
-        
-    </section><!-- /page -->
-
-        <section data-role="page" id="page-JazzEvent" data-title="Jazz Lounge - Details | page-JazzEvent">
-
-        <!---------------------------------------------------------------------------------------------->
-        <!-- HEADER -->
-        <!---------------------------------------------------------------------------------------------->
-        <header data-role="header">
-
-            <h1>Jazz Event</h1>
-            <a href="#" data-icon="back" data-rel="back">Zur&uuml;ck</a>
-
-        </header><!-- /header -->
-
-        <!---------------------------------------------------------------------------------------------->
-        <!-- CONTENT -->
-        <!---------------------------------------------------------------------------------------------->
-        <article class="ui-content">
-
-            <p><strong>Details:</strong></p>
-
-            <!---------------------------------------------------------------->
-            <!-- LOCATION - Details - collapsible-set / collapsible / -->
-            <!---------------------------------------------------------------->
-            <div data-role="collapsible-set" data-theme="c" data-content-theme="d">  <!-- Location Infos -->
+                    </div> <!-- /Review Auswahl ja/nein -->
+                </fieldset>
 
                 <!---------------------------------------------------------------->
-                <!-- LOCATION // id="beschrLocation..." => description -->
+                <!-- ui-field-contain / label / textarea "kommentar" -->
                 <!---------------------------------------------------------------->
-                <div data-role="collapsible" data-collapsed="false">
+                <div class="ui-field-contain">
 
-                    <h3>Kurzinfos</h3>
-                    <h3 id="beschrEventContentTop"></h3>
-                    <p id="beschrEventContent"></p>
+                    <label for="kommentar">Meine Kommentare:</label>
+                    <textarea id="kommentarEvent" data-mini="true"></textarea>
 
-                </div> <!-- /Review Beschreibung -->
+                </div> <!-- /Review Kommentar -->
+
                 <!---------------------------------------------------------------->
-                <!-- LOCATION // id="adr.../tel.../mail..." / description -->
+                <!-- navbar / ul / li / a -->
                 <!---------------------------------------------------------------->
-                <div data-role="collapsible">
+                <div data-role="navbar">
 
-                    <h3>Kontaktdaten</h3>
-                    <p><strong>Adresse:</strong></p>
-                    <p id="adrLocation"></p>
-                    <!-- <br /> -->
-                    <p><strong>Datum:</strong>:</p>
-                    <p id="eventDatum"></p>
-                    <!-- <br /> -->
-                    <p><strong>Zeit:</strong>:</p>
-                    <a id="eventStart"></a>
-                    <p id="eventEnde"></p>
-                    <!-- <br /> -->
-                    <p><strong>Jazz Lokal:</strong>:</p>
-                    <a id="eventLokal"></a>
-
-                </div> <!-- /Review Kontaktdaten -->
-                <!---------------------------------------------------------------->
-                <!-- LOCATION // id="imgLocation" / listview / ul  -->
-                <!---------------------------------------------------------------->
-                <div id="imgLocation" data-role="collapsible">
-
-                    <h3>Bildergalerie</h3>
-                    <ul data-role="listview" >
+                    <ul>
+                        <li>
+                            <a id="delEventLocationReview" href="#" data-icon="delete">Löschen</a>
+                        </li>
+                        <li>
+                            <a id="saveEventLocationReview" href="#" data-icon="check">Speichern</a>
+                        </li>
                     </ul>
 
-                </div> <!-- Review Images -->
+                </div> <!-- /Review Aktionen -->
 
-            </div> <!-- /collapsible-set -->
+            </div> <!-- /collapsible -->
 
-            <!---------------------------------------------------------------->
-            <!-- LOCATION - Review // form elements -->
-            <!---------------------------------------------------------------->
-            <div data-role="collapsible-set" data-theme="c" data-content-theme="d"> <!--Review -->
-
-                <div data-role="collapsible" data-collapsed="true" data-collapsed-icon="heart" data-theme="e" data-content-theme="c">
-
-                    <h3>Meine Wertung</h3>
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / range 0-6 "angebot" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label id="labelAngebot" for="angebot">Angebot</label>
-                        <input type="range" id="angebot" data-mini="true" data-highlight="true" value="0" min="0" max="6" />
-
-                    </div> <!-- /Review Slider Angebot -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / select / default=mittel "preise" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label for="preise">Preise</label>
-                        <select id="preise" data-mini="true">
-                            <option value="1">günstig</option>
-                            <option value="2" selected="selected">mittel</option>
-                            <option value="3">teuer</option>
-                            <option value="4">sehr teuer</option>
-                        </select>
-
-                    </div> <!-- /Review Auswahl Preisverh&auml;ltnis -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / select-flipswitch "gemuetlich" default=nein -->
-                    <!---------------------------------------------------------------->
-
-                    <fieldset>
-                        <div class="ui-field-contain">
-                            <label for="gemuetlich">gem&uuml;tlich</label>
-                            <select id="gemuetlich" data-role="flipswitch" data-mini="true">
-                                <option value="nein" selected="selected">Nein</option>
-                                <option value="ja">Ja</option>
-                            </select>
-                        </div> <!-- /Review Auswahl ja/nein -->
-                    </fieldset>
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / textarea "kommentar" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label for="kommentar">Meine Kommentare:</label>
-                        <textarea id="kommentar" data-mini="true"></textarea>
-
-                    </div> <!-- /Review Kommentar -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- navbar / ul / li / a -->
-                    <!---------------------------------------------------------------->
-                    <div data-role="navbar">
-
-                        <ul>
-                            <li>
-                                <a id="delLocationReview" href="#" data-icon="delete">Löschen</a>
-                            </li>
-                            <li>
-                                <a id="saveLocationReview" href="#" data-icon="check">Speichern</a>
-                            </li>
-                        </ul>
-
-                    </div> <!-- /Review Aktionen -->
-
-                </div> <!-- /collapsible -->
-
-            </div> <!-- /collapsible-set -->
-
-            <!---------------------------------------------------------------->
-            <!-- KARTEANSICHT -->
-            <!---------------------------------------------------------------->
-            <button data-role="button" id="showMapButton">Karte anzeigen</button>
-
-            <h3>Kartenansicht</h3>
-
-            <div id="karteAusgabe" style="height: 500px; width: 500px;"></div>
-            <p id="adresseAusgabe"></p>
-
-        </article><!-- /content -->
-
-        <!---------------------------------------------------------------------------------------------->
-        <!-- FOOTER -->
-        <!---------------------------------------------------------------------------------------------->
-        <footer data-role="footer">
-            <h6>2018 by Nici / Carlo / Rini</h6>
-        </footer><!-- /footer -->
-
-    </section><!-- /page -->
-        
-        
-        <!---------------------------------------------------------------------------------------------->
-        <!-- Page Location -->
-        <!----------------------------------------------------------------------------------------------   
-        
-        
-        
-        
-        
-         </section><!-- /page -->
-
-        <section data-role="page" id="page-Location" data-title="Jazz Lounge - Details | page-Location">
-
-        <!---------------------------------------------------------------------------------------------->
-        <!-- HEADER -->
-        <!---------------------------------------------------------------------------------------------->
-        <header data-role="header">
-
-            <h1>Jazz Event</h1>
-            <a href="#" data-icon="back" data-rel="back">Zur&uuml;ck</a>
-
-        </header><!-- /header -->
-
-        <!---------------------------------------------------------------------------------------------->
-        <!-- CONTENT -->
-        <!---------------------------------------------------------------------------------------------->
-        <article class="ui-content">
-
-            <p><strong>Details:</strong></p>
-
-            <!---------------------------------------------------------------->
-            <!-- LOCATION - Details - collapsible-set / collapsible / -->
-            <!---------------------------------------------------------------->
-            <div data-role="collapsible-set" data-theme="c" data-content-theme="d">  <!-- Location Infos -->
-
-                <!---------------------------------------------------------------->
-                <!-- LOCATION // id="beschrLocation..." => description -->
-                <!---------------------------------------------------------------->
-                <div data-role="collapsible" data-collapsed="false">
-
-                    <h3>Kurzinfos</h3>
-                    <h3 id="beschrLocationContentTop"></h3>
-                    <p id="beschrLocationContent"></p>
-
-                </div> <!-- /Review Beschreibung -->
-                <!---------------------------------------------------------------->
-                <!-- LOCATION // id="adr.../tel.../mail..." / description -->
-                <!---------------------------------------------------------------->
-                <div data-role="collapsible">
-
-                    <h3>Kontaktdaten</h3>
-                    <p><strong>Adresse:</strong></p>
-                    <p id="adrLocation"></p>
-                    <!-- <br /> -->
-                    <p><strong>Telefon</strong>:</p>
-                    <p id="telLocation"></p>
-                    <a id="telLocationLink">Link</a>
-                    <!-- <br /> -->
-                    <p><strong>E-Mail</strong>:</p>
-                    <p id="mailLocation"></p>
-                    <a id="mailLocationLink">Link</a>
-
-                </div> <!-- /Review Kontaktdaten -->
-                <!---------------------------------------------------------------->
-                <!-- LOCATION // id="imgLocation" / listview / ul  -->
-                <!---------------------------------------------------------------->
-                <div id="imgLocation" data-role="collapsible">
-
-                    <h3>Bildergalerie</h3>
-                    <ul data-role="listview" >
-                    </ul>
-
-                </div> <!-- Review Images -->
-
-            </div> <!-- /collapsible-set -->
-
-            <!---------------------------------------------------------------->
-            <!-- LOCATION - Review // form elements -->
-            <!---------------------------------------------------------------->
-            <div data-role="collapsible-set" data-theme="c" data-content-theme="d"> <!--Review -->
-
-                <div data-role="collapsible" data-collapsed="true" data-collapsed-icon="heart" data-theme="e" data-content-theme="c">
-
-                    <h3>Meine Wertung</h3>
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / range 0-6 "angebot" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label id="labelAngebot" for="angebot">Angebot</label>
-                        <input type="range" id="angebot" data-mini="true" data-highlight="true" value="0" min="0" max="6" />
-
-                    </div> <!-- /Review Slider Angebot -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / select / default=mittel "preise" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label for="preise">Preise</label>
-                        <select id="preise" data-mini="true">
-                            <option value="1">günstig</option>
-                            <option value="2" selected="selected">mittel</option>
-                            <option value="3">teuer</option>
-                            <option value="4">sehr teuer</option>
-                        </select>
-
-                    </div> <!-- /Review Auswahl Preisverh&auml;ltnis -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / select-flipswitch "gemuetlich" default=nein -->
-                    <!---------------------------------------------------------------->
-
-                    <fieldset>
-                        <div class="ui-field-contain">
-                            <label for="gemuetlich">gem&uuml;tlich</label>
-                            <select id="gemuetlich" data-role="flipswitch" data-mini="true">
-                                <option value="nein" selected="selected">Nein</option>
-                                <option value="ja">Ja</option>
-                            </select>
-                        </div> <!-- /Review Auswahl ja/nein -->
-                    </fieldset>
-
-                    <!---------------------------------------------------------------->
-                    <!-- ui-field-contain / label / textarea "kommentar" -->
-                    <!---------------------------------------------------------------->
-                    <div class="ui-field-contain">
-
-                        <label for="kommentar">Meine Kommentare:</label>
-                        <textarea id="kommentar" data-mini="true"></textarea>
-
-                    </div> <!-- /Review Kommentar -->
-
-                    <!---------------------------------------------------------------->
-                    <!-- navbar / ul / li / a -->
-                    <!---------------------------------------------------------------->
-                    <div data-role="navbar">
-
-                        <ul>
-                            <li>
-                                <a id="delLocationReview" href="#" data-icon="delete">Löschen</a>
-                            </li>
-                            <li>
-                                <a id="saveLocationReview" href="#" data-icon="check">Speichern</a>
-                            </li>
-                        </ul>
-
-                    </div> <!-- /Review Aktionen -->
-
-                </div> <!-- /collapsible -->
-
-            </div> <!-- /collapsible-set -->
-
-            <!---------------------------------------------------------------->
-            <!-- KARTEANSICHT -->
-            <!---------------------------------------------------------------->
-            <button data-role="button" id="showMapButton">Karte anzeigen</button>
-
-            <h3>Kartenansicht</h3>
-
-            <div id="karteAusgabe" style="height: 500px; width: 500px;"></div>
-            <p id="adresseAusgabe"></p>
-
-        </article><!-- /content -->
-
-        <!---------------------------------------------------------------------------------------------->
-        <!-- FOOTER -->
-        <!---------------------------------------------------------------------------------------------->
-        <footer data-role="footer">
-            <h6>2018 by Nici / Carlo / Rini</h6>
-        </footer><!-- /footer -->
-
-    </section><!-- /page -->
-
-    </section>
+        </div> <!-- /collapsible-set -->
+
+        <!---------------------------------------------------------------->
+        <!-- KARTEANSICHT -->
+        <!---------------------------------------------------------------->
+        <button data-role="button" id="showEventMapButton">Karte anzeigen</button>
+
+        <h3>Kartenansicht</h3>
+
+        <div style="height: 500px; width: 500px;"></div>
+        <p id="adresseEventAusgabe"></p>
+
+    </article><!-- /content -->
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- FOOTER -->
+    <!---------------------------------------------------------------------------------------------->
+    <footer data-role="footer">
+        <h6>2018 by Nici / Carlo / Rini</h6>
+    </footer><!-- /footer -->
+
+</section><!-- /page -->
+
+
+<!--------------------------------------------------------------------------------------------------------->
+<!-- PAGE Location-->
+<!--------------------------------------------------------------------------------------------------------->
+
+
+<section data-role="page" id="page-Location" data-title="Jazz Lounge - Details | page-Location">
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- HEADER -->
+    <!---------------------------------------------------------------------------------------------->
+    <header data-role="header">
+
+        <h1>Jazz Event</h1>
+        <a href="#" data-icon="back" data-rel="back">Zur&uuml;ck</a>
+
+    </header><!-- /header -->
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- CONTENT -->
+    <!---------------------------------------------------------------------------------------------->
+    <article class="ui-content">
+
+        <p><strong>Details:</strong></p>
+
+        <!---------------------------------------------------------------->
+        <!-- KARTEANSICHT -->
+        <!---------------------------------------------------------------->
+
+        <button data-role="button" id="showSearchMapButton">Karte anzeigen</button>
+
+        <h3>Kartenansicht</h3>
+
+        <div style="height: 500px; width: 500px;"></div>
+        <p id="adresseSearchAusgabe"></p>
+
+    </article><!-- /content -->
+
+    <!---------------------------------------------------------------------------------------------->
+    <!-- FOOTER -->
+    <!---------------------------------------------------------------------------------------------->
+    <footer data-role="footer">
+        <h6>2018 by Nici / Carlo / Rini</h6>
+    </footer><!-- /footer -->
+
+
+</section><!-- /page -->
+
+<!-- 2. js jquery -->
+<script type="text/javascript" src="lib/jquery/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery.mobile-1.4.5.min.js"></script>
+
+<!-- 3. js external -->
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZDsGJnpCjTrNtKQm4ztj1FAW08Itwgao&v=3"></script>
+<!-- Google-Maps -->
+
+<!-- Eigene JS-Bibliotheken -->
+<!-- 4. Model (logic) -->
+<script type="text/javascript" src="js/model.js"></script>
+<!-- 5. events -->
+<script type="text/javascript" src="js/controller.js"></script>
+
 </body>
 
 </html>

@@ -9,6 +9,10 @@ $(document).ready(function(){
     $('#toLocationButton').click(searchLocation);
     //Ereignis: Karte anzeigen
     $('#showMapButton').click(showMap);
+    //Ereignis: Karte anzeigen
+    $('#showEventMapButtonMapButton').click(showMap);
+    //Ereignis: Karte anzeigen
+    $('#showSearchMapButtonMapButton').click(showMap);
 
     console.log("DOM ready");
 });
@@ -171,7 +175,7 @@ function nearestJazzEvent(position){
 
         $("#beschrEventContentTop").text(myEvent.bezeichnung);
         $("#beschrEventContent").text(myEvent.beschreibung);
-        $("#adrLocation").text(myEvent.adresse);
+        $("#adrEventLocation").text(myEvent.adresse);
 
         $("#eventDatum").text(myEvent.datum); // +' <a href="tel:' + myLocation.telefon + '">link</a>'
         $("#eventStart").attr(myEvent.start);
@@ -183,30 +187,28 @@ function nearestJazzEvent(position){
 
 
         // ANZEIGEN: Alle (Mini-)Bilder zum aktuellen Location anzeigen
-        $("#imgLocation ul").empty();
+        $("#imgEventLocation ul").empty();
 
         var i = 0;
 
         for (i = 0; i < 2; i++){
-            $("#imgLocation ul").append("<li><img src='./img/" + myEvent.images[i] + "' width='200'></li>");
+            $("#imgEventLocation ul").append("<li><img src='./img/" + myEvent.images[i] + "' width='200'></li>");
 
         }
 
 
         var km = (Math.round(nearestJazzEvent * 100) / 100);
 
-        $('#beschrLocationContent').append("<p>Entfernung: " + km + " km</p>");
+        $('#beschrEventLocationContent').append("<p>Entfernung: " + km + " km</p>");
 
-        // Location page oeffnen
+        // Event page oeffnen
         $(':mobile-pagecontainer').pagecontainer('change', '#page-JazzEvent');
 
     }
 
 
-
-
-
 var map;
+
      function showMap(){
 
         //Werte fuer LocationID und aktueller Position aus localStorage laden
