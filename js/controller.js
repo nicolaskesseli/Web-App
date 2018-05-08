@@ -224,20 +224,24 @@ function showMap() {
     // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
     //----------------------------------------------------------------
 
+    var image = 'img/currentlogicon.png'
     markerCurrent = new google.maps.Marker({
         position: currentPosition,
         map: map,
-        title: "Hier bist du :)"
+        icon: image,
+        title: "Aktuelle Position"
     });
 
     //----------------------------------------------------------------
     // TODO: 5c3.2 ICON FUER ATTRAKTION DEFINIEREN
     //----------------------------------------------------------------
 
+    var image = 'img/eventicon.png'
     markerLocation = new google.maps.Marker({
         position: locationPosition,
         map: map,
-        title: "Hier ist das Jazz Lokal :)"
+        title: "Hier ist das Jazz Lokal",
+        icon: image
     });
 
     // Kartenausschnitt eingrenzen
@@ -290,20 +294,24 @@ function showMap2() {
     // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
     //----------------------------------------------------------------
 
+    var image = 'img/currentlogicon.png'
     markerCurrent = new google.maps.Marker({
         position: currentPosition,
         map: map,
-        title: "Hier bist du :)"
+        icon: image,
+        title: "Aktuelle Position"
     });
 
     //----------------------------------------------------------------
     // TODO: 5c3.2 ICON FUER ATTRAKTION DEFINIEREN
     //----------------------------------------------------------------
 
+    var image = 'img/eventicon.png'
     markerLocation = new google.maps.Marker({
         position: locationPosition,
         map: map,
-        title: "Hier ist das Jazz Lokal :)"
+        title: "Hier ist das Jazz Event",
+        icon: image
     });
 
     // Kartenausschnitt eingrenzen
