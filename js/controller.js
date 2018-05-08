@@ -1,305 +1,331 @@
 // Controller fuer Events
 
-$(document).ready(function(){
+$(document).ready(function () {
     //Ereignis: Jazz Lokal suchen
     $('#toJazzLokalButton').click(searchLokal);
     //Ereignis: Jazz Event suchen
     $('#toJazzEventButton').click(searchEvent);
     //Ereignis: Standort anzeigen
-    $('#toLocationButton').click(searchLocation);
+    $('#showLocationMapButton').click(showMap);
     //Ereignis: Karte anzeigen
-    $('#showMapButton').click(showMap);
-    //Ereignis: Karte anzeigen
-    $('#showEventMapButtonMapButton').click(showMap);
-    //Ereignis: Karte anzeigen
-    $('#showSearchMapButtonMapButton').click(showMap);
+    $('#showEventMapButton').click(showMap2);
 
     console.log("DOM ready");
 });
 
-    function searchLokal() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(nearestJazzLokal);
-        } else {
-            alert("Geolocation wird vom Browser nicht unterstuetzt");
-        }
+function searchLokal() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(nearestJazzLokal);
+    } else {
+        alert("Geolocation wird vom Browser nicht unterstuetzt");
     }
+}
 
 function searchEvent() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(nearestJazzEvent);
-        } else {
-            alert("Geolocation wird vom Browser nicht unterstuetzt");
-        }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(nearestJazzEvent);
+    } else {
+        alert("Geolocation wird vom Browser nicht unterstuetzt");
     }
+}
 
+function nearestJazzLokal(position) {
 
-function searchLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(Location);
-        } else {
-            alert("Geolocation wird vom Browser nicht unterstuetzt");
-        }
-    }
+    var myLocation;
+    var currentLng = position.coords.longitude;
+    var currentLat = position.coords.latitude;
+    var locationLng;
+    var locationLat;
+    var dx;
+    var dy;
 
-    function nearestJazzLokal(position){
+    var distance;
+    var nearestJazzLokal = 15000; // ein extrem weit entfernter Ort (unrealistisch)
 
-        var myLocation;
-        var currentLng = position.coords.longitude;
-        var currentLat = position.coords.latitude;
-        var locationLng;
-        var locationLat;
-        var dx;
-        var dy;
+    var locationID = 0;
 
-        var distance;
-        var nearestJazzLokal = 15000; // ein extrem weit entfernter Ort (unrealistisch)
+    //Annahme: Maximal vier Locations
+    for (var i = 0; i < myLocations.length; i++) {
 
-        var locationID=0;
+        myLocation = myLocations[i];
 
-        //Annahme: Maximal vier Locations
-        for (var i = 0; i < myLocations.length; i++){
+        locationLng = myLocation.longitude;
+        locationLat = myLocation.latitude;
 
-            myLocation = myLocations[i];
+        dx = 71.5 * (currentLng - locationLng);
+        dy = 111.3 * (currentLat - locationLat);
 
-            locationLng = myLocation.longitude;
-            locationLat = myLocation.latitude;
+        distance = Math.sqrt(dx * dx + dy * dy);
 
-            dx = 71.5 * (currentLng - locationLng);
-            dy = 111.3 * (currentLat - locationLat);
-
-            distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < nearestJazzLokal){
-                nearestJazzLokal = distance;
-                locationID = i;
-            }
-
-            console.log('Distance ' + i + ': ' + distance);
+        if (distance < nearestJazzLokal) {
+            nearestJazzLokal = distance;
+            locationID = i;
         }
 
-        //Fuer Uebung 5c: Speichern der aktuellen Position und naechsten Attraktion im localStorage
-        localStorage.setItem('currentLat', currentLat);
-        localStorage.setItem('currentLng', currentLng);
-        localStorage.setItem('locationID', locationID);
-
-        showJazzLokal(locationID, nearestJazzLokal);
+        console.log('Distance ' + i + ': ' + distance);
     }
 
+    //Fuer Uebung 5c: Speichern der aktuellen Position und naechsten Attraktion im localStorage
+    localStorage.setItem('currentLocationLat', currentLat);
+    localStorage.setItem('currentLocationLng', currentLng);
+    localStorage.setItem('locationID', locationID);
+
+    showJazzLokal(locationID, nearestJazzLokal);
+}
+
+function nearestJazzEvent(position) {
+
+    var myEvent;
+    var currentLng = position.coords.longitude;
+    var currentLat = position.coords.latitude;
+    var locationLng;
+    var locationLat;
+    var dx;
+    var dy;
+
+    var distance;
+    var nearestJazzEvent = 15000; // ein extrem weit entfernter Ort (unrealistisch)
+
+    var eventID = 0;
+
+    //Annahme: Maximal drei Attraktionen
+    for (var i = 0; i < myEvents.length; i++) {
+
+        myEvent = myEvents[i];
 
 
-function nearestJazzEvent(position){
+        locationLng = myEvent.longitude;
+        locationLat = myEvent.latitude;
 
-        var myEvent;
-        var currentLng = position.coords.longitude;
-        var currentLat = position.coords.latitude;
-        var locationLng;
-        var locationLat;
-        var dx;
-        var dy;
+        dx = 71.5 * (currentLng - locationLng);
+        dy = 111.3 * (currentLat - locationLat);
 
-        var distance;
-        var nearestJazzEvent = 15000; // ein extrem weit entfernter Ort (unrealistisch)
+        distance = Math.sqrt(dx * dx + dy * dy);
 
-        var locationID=0;
-
-        //Annahme: Maximal drei Attraktionen
-        for (var i = 0; i < myEvents.length; i++){
-
-            myEvent = myEvents[i];
-
-
-            locationLng = myEvent.longitude;
-            locationLat = myEvent.latitude;
-
-            dx = 71.5 * (currentLng - locationLng);
-            dy = 111.3 * (currentLat - locationLat);
-
-            distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < nearestJazzEvent){
-                nearestJazzEvent = distance;
-                locationID = i;
-            }
-
-            console.log('Distance ' + i + ': ' + distance);
+        if (distance < nearestJazzEvent) {
+            nearestJazzEvent = distance;
+            eventID = i;
         }
 
-        //Fuer Uebung 5c: Speichern der aktuellen Position und naechsten Attraktion im localStorage
-        localStorage.setItem('currentLat', currentLat);
-        localStorage.setItem('currentLng', currentLng);
-        localStorage.setItem('locationID', locationID);
-
-        showJazzEvent(locationID, nearestJazzEvent);
+        console.log('Distance ' + i + ': ' + distance);
     }
+
+    //Fuer Uebung 5c: Speichern der aktuellen Position und naechsten Attraktion im localStorage
+    localStorage.setItem('currentEventLat', currentLat);
+    localStorage.setItem('currentEventLng', currentLng);
+    localStorage.setItem('eventID', locationID);
+
+    showJazzEvent(eventID, nearestJazzEvent);
+}
 
 //Location anzeigen ohne Karte
-    function showJazzLokal(locationID, nearestJazzLokal) {
+function showJazzLokal(locationID, nearestJazzLokal) {
 
-        var myLocation = myLocations[locationID];
+    var myLocation = myLocations[locationID];
 
-        $("#beschrLocationContentTop").text(myLocation.bezeichnung);
-        $("#beschrLocationContent").text(myLocation.beschreibung);
-        $("#adrLocation").text(myLocation.adresse);
+    $("#beschrLocationContentTop").text(myLocation.bezeichnung);
+    $("#beschrLocationContent").text(myLocation.beschreibung);
+    $("#adrLocation").text(myLocation.adresse);
 
-        $("#telLocation").text(myLocation.telefon); // +' <a href="tel:' + myLocation.telefon + '">link</a>'
-        $("#telLocationLink").attr("href", "tel:" + myLocation.telefon);
+    $("#telLocation").text(myLocation.telefon); // +' <a href="tel:' + myLocation.telefon + '">link</a>'
+    $("#telLocationLink").attr("href", "tel:" + myLocation.telefon);
 
-        $("#mailLocation").text(myLocation.email);
-        $("#mailLocationLink").attr("href", "mailto:" + myLocation.email);
+    $("#mailLocation").text(myLocation.email);
+    $("#mailLocationLink").attr("href", "mailto:" + myLocation.email);
 
-        // ANZEIGEN: Alle (Mini-)Bilder zum aktuellen Location anzeigen
-        $("#imgLocation ul").empty();
+    // ANZEIGEN: Alle (Mini-)Bilder zum aktuellen Location anzeigen
+    $("#imgLocation ul").empty();
 
-        var i = 0;
+    var i = 0;
 
-        for (i = 0; i < 2; i++){
-            $("#imgLocation ul").append("<li><img src='./img/" + myLocation.images[i] + "' width='200'></li>");
-
-        }
-
-
-        var km = (Math.round(nearestJazzLokal * 100) / 100);
-
-        $('#beschrLocationContent').append("<p>Entfernung: " + km + " km</p>");
-
-        // Jazz Lokal page oeffnen
-        $(':mobile-pagecontainer').pagecontainer('change', '#page-JazzLokal');
+    for (i = 0; i < 2; i++) {
+        $("#imgLocation ul").append("<li><img src='./img/" + myLocation.images[i] + "' width='200'></li>");
 
     }
 
 
-    function showJazzEvent(locationID, nearestJazzEvent) {
+    var km = (Math.round(nearestJazzLokal * 100) / 100);
 
-        var myEvent = myEvents[locationID];
+    $('#beschrLocationContent').append("<p>Entfernung: " + km + " km</p>");
 
-        $("#beschrEventContentTop").text(myEvent.bezeichnung);
-        $("#beschrEventContent").text(myEvent.beschreibung);
-        $("#adrEventLocation").text(myEvent.adresse);
+    // Jazz Lokal page oeffnen
+    $(':mobile-pagecontainer').pagecontainer('change', '#page-JazzLokal');
 
-        $("#eventDatum").text(myEvent.datum); // +' <a href="tel:' + myLocation.telefon + '">link</a>'
-        $("#eventStart").attr(myEvent.start);
-
-        $("#eventEnde").text(myEvent.ende);
-        $("#eventLokal").attr(myEvent.lokal);
-
-        $("#eventPreis").text(myEvent.ticketpreis);
+}
 
 
-        // ANZEIGEN: Alle (Mini-)Bilder zum aktuellen Location anzeigen
-        $("#imgEventLocation ul").empty();
+function showJazzEvent(eventID, nearestJazzEvent) {
 
-        var i = 0;
+    var myEvent = myEvents[eventID];
 
-        for (i = 0; i < 2; i++){
-            $("#imgEventLocation ul").append("<li><img src='./img/" + myEvent.images[i] + "' width='200'></li>");
+    $("#beschrEventContentTop").text(myEvent.bezeichnung);
+    $("#beschrEventContent").text(myEvent.beschreibung);
+    $("#adrEventLocation").text(myEvent.adresse);
 
-        }
+    $("#eventDatum").text(myEvent.datum); // +' <a href="tel:' + myLocation.telefon + '">link</a>'
+    $("#eventStart").attr(myEvent.start);
+
+    $("#eventEnde").text(myEvent.ende);
+    $("#eventLokal").attr(myEvent.lokal);
+
+    $("#eventPreis").text(myEvent.ticketpreis);
 
 
-        var km = (Math.round(nearestJazzEvent * 100) / 100);
+    // ANZEIGEN: Alle (Mini-)Bilder zum aktuellen Location anzeigen
+    $("#imgEventLocation ul").empty();
 
-        $('#beschrEventLocationContent').append("<p>Entfernung: " + km + " km</p>");
+    var i = 0;
 
-        // Event page oeffnen
-        $(':mobile-pagecontainer').pagecontainer('change', '#page-JazzEvent');
+    for (i = 0; i < 2; i++) {
+        $("#imgEventLocation ul").append("<li><img src='./img/" + myEvent.images[i] + "' width='200'></li>");
 
     }
+
+
+    var km = (Math.round(nearestJazzEvent * 100) / 100);
+
+    $('#beschrEventLocationContent').append("<p>Entfernung: " + km + " km</p>");
+
+    // Event page oeffnen
+    $(':mobile-pagecontainer').pagecontainer('change', '#page-JazzEvent');
+
+}
 
 
 var map;
 
-     function showMap(){
+function showMap() {
 
-        //Werte fuer LocationID und aktueller Position aus localStorage laden
-        locationID = localStorage.getItem('locationID');
-        var myLocation = myLocations[locationID];
-        var currentLat = parseFloat(localStorage.getItem('currentLat'));
-        var currentLng = parseFloat(localStorage.getItem('currentLng'));
+    //Werte fuer LocationID und aktueller Position aus localStorage laden
+    locationID = localStorage.getItem('locationID');
+    var myLocation = myLocations[locationID];
+    var currentLat = parseFloat(localStorage.getItem('currentLocationLat'));
+    var currentLng = parseFloat(localStorage.getItem('currentLocationLng'));
 
-        var currentPosition = {
-            lat: currentLat,
-            lng: currentLng
-        };
+    var currentPosition = {
+        lat: currentLat,
+        lng: currentLng
+    };
 
-        var locationPosition = {
-            lat: parseFloat(myLocation.latitude),
-            lng: parseFloat(myLocation.longitude)
-        };
+    var locationPosition = {
+        lat: parseFloat(myLocation.latitude),
+        lng: parseFloat(myLocation.longitude)
+    };
 
-        var geocoder = new google.maps.Geocoder();
+    var geocoder = new google.maps.Geocoder();
 
-        //----------------------------------------------------------------
-        // TODO: 5c2. KARTE DARSTELLEN (im Div-Container mit der id=karteAusgabe)
-        //----------------------------------------------------------------
+    //----------------------------------------------------------------
+    // TODO: 5c2. KARTE DARSTELLEN (im Div-Container mit der id=karteAusgabe)
+    //----------------------------------------------------------------
 
-        map = new google.maps.Map(document.getElementById('karteAusgabe'));
+    map = new google.maps.Map(document.getElementById('karteLocationAusgabe'));
 
-        //----------------------------------------------------------------
-        // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
-        //----------------------------------------------------------------
+    //----------------------------------------------------------------
+    // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
+    //----------------------------------------------------------------
 
-        markerCurrent = new google.maps.Marker({
-            position: currentPosition,
-            map: map,
-            title: "Hier bist du :)"
-        });
+    markerCurrent = new google.maps.Marker({
+        position: currentPosition,
+        map: map,
+        title: "Hier bist du :)"
+    });
 
-        //----------------------------------------------------------------
-        // TODO: 5c3.2 ICON FUER ATTRAKTION DEFINIEREN
-        //----------------------------------------------------------------
+    //----------------------------------------------------------------
+    // TODO: 5c3.2 ICON FUER ATTRAKTION DEFINIEREN
+    //----------------------------------------------------------------
 
-        markerLocation = new google.maps.Marker({
-            position: locationPosition,
-            map: map,
-            title: "Hier ist das Jazz Lokal :)"
-        });
+    markerLocation = new google.maps.Marker({
+        position: locationPosition,
+        map: map,
+        title: "Hier ist das Jazz Lokal :)"
+    });
 
-        // Kartenausschnitt eingrenzen
-        var bounds = new google.maps.LatLngBounds();
-        bounds.extend(markerCurrent.getPosition());
-        bounds.extend(markerLocation.getPosition());
-        map.fitBounds(bounds);
+    // Kartenausschnitt eingrenzen
+    var bounds = new google.maps.LatLngBounds();
+    bounds.extend(markerCurrent.getPosition());
+    bounds.extend(markerLocation.getPosition());
+    map.fitBounds(bounds);
 
-        // Postalische Adresse der aktuellen Pos. ermitteln und darstellen
-        geocoder.geocode({
-            'latLng' : currentPosition
-        }, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                if (results[0]) {
-                    this.adresse = results[0].formatted_address;
-                    $("#adresseAusgabe").text("Sie sind gerade hier: " + this.adresse);
-                }
+    // Postalische Adresse der aktuellen Pos. ermitteln und darstellen
+    geocoder.geocode({
+        'latLng': currentPosition
+    }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                this.adresse = results[0].formatted_address;
+                $("#adresseLocationAusgabe").text("Sie sind gerade hier: " + this.adresse);
             }
-        });
+        }
+    });
 
-        //----------------------------------------------------------------
-        // Request für Navigation erstellen
-        //----------------------------------------------------------------
-        /*var directionsService = new google.maps.DirectionsService();
+}
 
-         var directionsRenderer = new google.maps.DirectionsRenderer();
-         directionsRenderer.setMap(map);
+function showMap2() {
 
-         var request = {
-                  origin: currentPosition,
-                  destination: locationPosition,
-                  travelMode: google.maps.DirectionsTravelMode.DRIVING
-                  };
+    //Werte fuer eventID und aktueller Position aus localStorage laden
+    locationID = localStorage.getItem('eventID');
+    var myLocation = myLocations[locationID];
+    var currentLat = parseFloat(localStorage.getItem('currentEventLat'));
+    var currentLng = parseFloat(localStorage.getItem('currentEventLng'));
 
-         // directions request absetzen
-         directionsService.route(request, function (result, status) {
-                      if (status == google.maps.DirectionsStatus.OK) {
-                          // Display the directions using Google's Directions
-                          // Renderer.
-                          directionsRenderer.setDirections(result);
+    var currentPosition = {
+        lat: currentLat,
+        lng: currentLng
+    };
 
-                      } else {
-                          error("Directions failed due to: " + status);
-                      }
-                  });*/
+    var locationPosition = {
+        lat: parseFloat(myLocation.latitude),
+        lng: parseFloat(myLocation.longitude)
+    };
 
-    }
+    var geocoder = new google.maps.Geocoder();
+
+    //----------------------------------------------------------------
+    // TODO: 5c2. KARTE DARSTELLEN (im Div-Container mit der id=karteAusgabe)
+    //----------------------------------------------------------------
+
+    map = new google.maps.Map(document.getElementById('karteEventAusgabe'));
+
+    //----------------------------------------------------------------
+    // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
+    //----------------------------------------------------------------
+
+    markerCurrent = new google.maps.Marker({
+        position: currentPosition,
+        map: map,
+        title: "Hier bist du :)"
+    });
+
+    //----------------------------------------------------------------
+    // TODO: 5c3.2 ICON FUER ATTRAKTION DEFINIEREN
+    //----------------------------------------------------------------
+
+    markerLocation = new google.maps.Marker({
+        position: locationPosition,
+        map: map,
+        title: "Hier ist das Jazz Lokal :)"
+    });
+
+    // Kartenausschnitt eingrenzen
+    var bounds = new google.maps.LatLngBounds();
+    bounds.extend(markerCurrent.getPosition());
+    bounds.extend(markerLocation.getPosition());
+    map.fitBounds(bounds);
+
+    // Postalische Adresse der aktuellen Pos. ermitteln und darstellen
+    geocoder.geocode({
+        'latLng': currentPosition
+    }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                this.adresse = results[0].formatted_address;
+                $("#adresseEventAusgabe").text("Sie sind gerade hier: " + this.adresse);
+            }
+        }
+    });
+
+}
+
 
 
 
