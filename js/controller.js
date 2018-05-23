@@ -270,8 +270,8 @@ function showMap() {
 function showMap2() {
 
     //Werte fuer eventID und aktueller Position aus localStorage laden
-    locationID = localStorage.getItem('eventID');
-    var myLocation = myLocations[locationID];
+    eventID = localStorage.getItem('eventID');
+    var myLocation = myLocations[eventID];
     var currentLat = parseFloat(localStorage.getItem('currentEventLat'));
     var currentLng = parseFloat(localStorage.getItem('currentEventLng'));
 
