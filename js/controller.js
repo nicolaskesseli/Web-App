@@ -205,6 +205,7 @@ function showMap() {
     var currentLat = parseFloat(localStorage.getItem('currentLocationLat'));
     var currentLng = parseFloat(localStorage.getItem('currentLocationLng'));
 
+
     var currentPosition = {
         lat: currentLat,
         lng: currentLng
@@ -222,6 +223,24 @@ function showMap() {
     //----------------------------------------------------------------
 
     map = new google.maps.Map(document.getElementById('karteLocationAusgabe'));
+        //NAVIGATION
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('route'));
+    
+     var request = {
+      origin: currentPosition,
+      destination: locationPosition,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionsService = new google.maps.DirectionsService();
+    directionsService.route(request, function(result, status) {
+      if (status === google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(result);
+      }
+    });
+  }
+
 
     //----------------------------------------------------------------
     // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
@@ -264,8 +283,10 @@ function showMap() {
             }
         }
     });
+    
 
-}
+
+
 
 function showMap2() {
 
@@ -292,7 +313,24 @@ function showMap2() {
     //----------------------------------------------------------------
 
     map = new google.maps.Map(document.getElementById('karteEventAusgabe'));
-
+    
+    //NAVIGATION
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('route'));
+    
+     var request = {
+      origin: currentPosition,
+      destination: locationPosition,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionsService = new google.maps.DirectionsService();
+    directionsService.route(request, function(result, status) {
+      if (status === google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(result);
+      }
+    });
+    
     //----------------------------------------------------------------
     // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
     //----------------------------------------------------------------
