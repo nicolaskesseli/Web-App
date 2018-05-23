@@ -1,6 +1,6 @@
 // Modell besteht aus Array von Locations mit Attributen
 
-var lokalLocations = 
+var myLocations = 
 [
 	{
 		"bezeichnung":"Jazzkantine Luzern",
@@ -60,22 +60,9 @@ var lokalLocations =
             "0": "LouisBar1.jpg",
             "1": "LouisBar2.jpg"
         }
-    },
+    }
     
-   {
-        "bezeichnung":"Simon's Flötenparadies",
-		"beschreibung":"In Simon's Flötenparadies kommen sämtliche Gäste auf ihre Kosten. ",
-    	"adresse":"Förrlibuckstrasse 109, 8001 Zürich",
-    	"telefon":"043 446 50 76",
-       	"longitude":"8.512537",
-    	"latitude":"47.391612",
-    	"url":"https://www.mehrspur.ch/",
-    	"email":"info@mehrspur.ch",
-        "images": {
-            "0": "mehrspur1.jpg",
-            "1": "mehrspur2.jpg"
-        }
-    } 
+ 
     
 ];
 
