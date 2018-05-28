@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdc12e30-c11f-4312-a6c8-853f9a4ab8bc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/styles/fontawesome-stars-o.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/fontawesome-stars.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/controller.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,10 +17,35 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3869">
-              <caret line="436" lean-forward="true" selection-start-line="436" selection-end-line="436" />
+            <state relative-caret-position="231">
+              <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jazzbild1.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/jazzbild1.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="jazzbild2.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/jazzbild2.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="jazzbild3.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/jazzbild3.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="jazzbild4.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/jazzbild4.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="jazzbild6.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/jazzbild6.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -76,10 +98,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
+    <option name="x" value="407" />
     <option name="y" value="23" />
     <option name="width" value="1195" />
-    <option name="height" value="725" />
+    <option name="height" value="717" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -93,22 +115,6 @@
             <path>
               <item name="nawt-jazz-web-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="nawt-jazz-web-app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nawt-jazz-web-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nawt-jazz-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nawt-jazz-web-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nawt-jazz-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="jquery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nawt-jazz-web-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nawt-jazz-web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -175,26 +181,27 @@
       <workItem from="1525691925211" duration="2968000" />
       <workItem from="1525780920203" duration="1481000" />
       <workItem from="1525793077033" duration="8667000" />
+      <workItem from="1527496050736" duration="794000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27415000" />
+    <option name="totallyTimeSpent" value="28209000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="23" width="1195" height="725" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32970712" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18203124" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3778802" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32872504" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32872504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28208557" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28208557" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -203,6 +210,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3778802" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +225,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6540">
+          <caret line="436" lean-forward="true" selection-start-line="436" selection-end-line="436" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5895">
@@ -336,22 +351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="187" column="31" selection-start-line="187" selection-start-column="31" selection-end-line="187" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/location.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/locationicon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/fontawesome-stars.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -359,23 +358,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/bars-1to10.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-875" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/bars-1to10.less" />
     <entry file="file://$PROJECT_DIR$/styles/fontawesome-stars-o.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-572" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/general.css">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/js/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="187" column="31" selection-start-line="187" selection-start-column="31" selection-end-line="187" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/jazzbild1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/jazzbild2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/jazzbild3.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/jazzbild6.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/jazzbild4.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3869">
-          <caret line="436" lean-forward="true" selection-start-line="436" selection-end-line="436" />
+        <state relative-caret-position="231">
+          <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
         </state>
       </provider>
     </entry>
