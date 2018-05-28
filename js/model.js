@@ -60,14 +60,71 @@ var myLocations =
             "0": "LouisBar1.jpg",
             "1": "LouisBar2.jpg"
         }
-    }
+    },
     
- 
+    {
+		"bezeichnung":"Simon's Flötenparadies",
+        "beschreibung":"Inmitten des schönen Dörfchens Neuenkirch, verwöhnt Sie Simon's Flötenparadies mit ihren Klängen. Ob Alt oder Jung, in diesem Lokal kommen sämtliche Gäste auf ihre Kosten.",
+    	"adresse":"Eggstrasse 5, 6206 Neuenkirch",
+    	"telefon":"041 123 45 67",
+       	"longitude":"8.195344",
+    	"latitude":"47.100294",
+    	"url":"https://www.hslu.ch",
+    	"email":"simon.achermann@stud.hslu.ch",
+        "images": {
+            "0": "Neuenkirch_Wohnen.jpg",
+            "1": "Simon.jpg"
+        }
+    },
+    
+    {
+		"bezeichnung":"Balkan's Jazz Oase",
+        "beschreibung":"An diesem Ort werden Sie mit prächtigen Klängen und feinsten Köstlichkeiten aus dem Balkan empfangen. Geniessen Sie die Atmosphäre und tauchen Sie ein in die wundervolle Welt des Balkan's.",
+    	"adresse":"Neuhofstrasse 20, 6020 Emmenbrücke",
+    	"telefon":"041 333 44 55",
+       	"longitude":"8.257602",
+    	"latitude":"47.070925",
+    	"url":"https://de.wikipedia.org/wiki/Haris_Seferović",
+    	"email":"balkan-jazz-oase@gmail.com",
+        "images": {
+            "0": "balkanjazzoase.jpg",
+            "1": "Haris.jpg"
+        }
+    },
+    
+    {
+		"bezeichnung":"Auriga Bar",
+        "beschreibung":"Neben guter Musik, geniessen Sie hier spannenden Live Fussball vom Feinsten. Seien hautnah Sie dabei, wenn der FCL um die Meisterschaft spielt oder Cristiano Ronaldo seinen nächsten Ballon d'Or erhält...",
+    	"adresse":"Gasshof 2, 6014 Luzern",
+    	"telefon":"041 250 25 27",
+       	"longitude":"8.257759",
+    	"latitude":"47.048619",
+    	"url":"http://www.aurigabar.ch/",
+    	"email":"auriga@gmail.com",
+        "images": {
+            "0": "auriga.jpg",
+            "1": "auriga2.jpg"
+        }
+    },
+    
+    {
+		"bezeichnung":"Avalon Club",
+        "beschreibung":"Tauchen Sie ein und geniessen Sie die einzigartige Mischung zwischen Jazz Musik und feinsten Tabakpfeiffen. Der Avalon Club ist weltbekannt für seine Doppelapfel-Tabak Aromen.",
+    	"adresse":"Industriestrasse 9, 6010 Kriens",
+    	"telefon":"041 342 16 16",
+       	"longitude":"8.297973",
+    	"latitude":"47.024383",
+    	"url":"http://avalonclub.ch/luzern/",
+    	"email":"avalon-club@hotmail.com",
+        "images": {
+            "0": "Avalon.jpg",
+            "1": "Avalon2.jpg"
+        }
+    } 
     
 ];
 
 // Events
-//
 //
 //
 

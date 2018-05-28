@@ -123,7 +123,7 @@ function nearestJazzLokal(position) {
 
     var locationID = 0;
 
-    //Annahme: Maximal vier Locations
+    //Annahme: Maximale Anzahl Locations
     for (var i = 0; i < myLocations.length ; i++) {
 
         myLocation = myLocations[i];
@@ -325,7 +325,7 @@ function showMap() {
     // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
     //----------------------------------------------------------------
 
-    var image = 'img/currentlogicon.png'
+    var image = 'img/Empty.png'
     markerCurrent = new google.maps.Marker({
         position: currentPosition,
         map: map,
@@ -337,7 +337,7 @@ function showMap() {
     // TODO: 5c3.2 ICON FUER ATTRAKTION DEFINIEREN
     //----------------------------------------------------------------
 
-    var image = 'img/eventicon.png'
+    var image = 'img/Empty.png'
     markerLocation = new google.maps.Marker({
         position: locationPosition,
         map: map,
@@ -414,7 +414,7 @@ function showMap2() {
     // TODO: 5c3.1 ICON FUER EIGENE POSITION DEFINIEREN
     //----------------------------------------------------------------
 
-    var image = 'img/currentlogicon.png'
+    var image = 'img/Empty.png'
     markerCurrent = new google.maps.Marker({
         position: currentPosition,
         map: map,
@@ -426,7 +426,7 @@ function showMap2() {
     // TODO: 5c3.2 ICON FUER ATTRAKTION DEFINIEREN
     //----------------------------------------------------------------
 
-    var image = 'img/eventicon.png'
+    var image = 'img/Empty.png'
     markerLocation = new google.maps.Marker({
         position: locationPosition,
         map: map,
