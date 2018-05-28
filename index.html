@@ -52,6 +52,9 @@
             <a href="#page-JazzLokal" id="toJazzLokalButton" data-role="button">Jazzlokal suchen</a>
             <a href="#page-JazzEvent" id="toJazzEventButton" data-role="button">Jazzevent suchen</a>
         </p>
+        <center>
+                <div id="karteAusgabe" style="height: 500px; width: auto;"></div>
+                </center>
 
     </article><!-- /content -->
 
@@ -398,7 +401,16 @@
             theme: 'fontawesome-stars'
         });
     });
+    
+    
 </script>
+    
+        <!-- 5. onload funktion für ShowMap -->
+    <script>
+        window.onload = function() {
+            showMapCurrentPosition();
+        }
+    </script>
 
 </body>
 

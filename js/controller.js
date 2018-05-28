@@ -21,6 +21,85 @@ function searchLokal() {
     }
 }
 
+/* Standort Funktionen */
+
+// Globale Var für Standort
+
+var currentLng;
+var currentLat;
+
+// Funktion für Standortbestimmung ohne speichern, die direkt mittels showMap3 angezeigt wird
+function showMapCurrentPosition(){
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showMap3);
+    } else {
+        alert("Geolocation wird vom Browser nicht unterstuetzt");
+    }
+
+}
+
+// Karte anzeigen mit aktueller Position
+
+function showMap3(position){
+
+    currentLng = position.coords.longitude;
+    sessionStorage.setItem("aktueller Längengrad", currentLng);
+    currentLat = position.coords.latitude;
+    sessionStorage.setItem("aktueller Breitengrad", currentLat);
+
+    var currentPosition = {
+        lat: currentLat,
+        lng: currentLng
+    };
+
+    //Optionen
+    var optionen = {
+        zoom: 13,
+        center: new google.maps.LatLng(currentLat, currentLng)
+    };
+
+    map = new google.maps.Map(document.getElementById('karteAusgabe'), optionen);
+
+    /*
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+    });*/
+
+    var image = 'img/pin2.png';
+    markerCurrent = new google.maps.Marker({
+        position: currentPosition,
+        map: map,
+        icon: image,
+
+        title: "Aktuelle Position"
+    });
+
+    for (var i=0; i<myLocations.length; i++){
+
+        var posAlleLokale = myLocations[i];
+
+        var locationLng = parseFloat(posAlleLokale.longitude);
+        var locationLat = parseFloat(posAlleLokale.latitude);
+
+        var positionAlleLokale = {
+            lat:locationLat,
+            lng:locationLng
+        }
+        //alert(locationLng+" "+locationLat);
+
+        var markerAlleLokale={
+            position: positionAlleLokale,
+            map: map,
+            title: posAlleLokale.bezeichnung
+        }
+
+
+        markerAlleLok = new google.maps.Marker(markerAlleLokale);
+    }
+}
+
 function searchEvent() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(nearestJazzEvent);
